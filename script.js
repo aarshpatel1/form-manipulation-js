@@ -14,7 +14,7 @@ addData.addEventListener("click", function () {
         "id": generateUniqueID(),
         "email": userEmail.value,
         "password": userPassword.value,
-        "time": Date.now()
+        "time": formatDateTime()
     })
     saveData()
     updateData()
@@ -42,5 +42,21 @@ function updateData() {
 function generateUniqueID() {
     return Math.floor(Math.random() * Date.now());
 }
+
+function formatDateTime() {
+    const now = new Date(Date.now());
+
+    const day = String(now.getDate()).padStart(2, '0');       // Get day and pad with zero if needed
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Get month and pad with zero, months are 0-indexed
+    const year = now.getFullYear();                           // Get full year
+
+    const hours = String(now.getHours()).padStart(2, '0');    // Get hours and pad with zero
+    const minutes = String(now.getMinutes()).padStart(2, '0'); // Get minutes and pad with zero
+    const seconds = String(now.getSeconds()).padStart(2, '0'); // Get seconds and pad with zero
+
+    return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+}
+
+// console.log(formatDateTime());
 
 updateData()

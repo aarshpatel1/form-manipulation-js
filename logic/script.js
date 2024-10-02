@@ -21,8 +21,8 @@ function displayRecord() {
       <td>${record.details}</td>
       <td>${new Date(record.date).toLocaleString()}</td>
       <td>
-        <button onclick ="loadRecord(${index})">Edit</button>
-        <button onclick ="deleteRecord(${index})">Delete</button>
+        <button class="btn btn-secondary" onclick ="loadRecord(${index})">Edit</button>
+        <button class="btn btn-secondary" onclick ="deleteRecord(${index})">Delete</button>
       </td>
       </tr>
     `;
@@ -106,8 +106,8 @@ function searchByName() {
       <td>${record.details}</td>
       <td>${new Date(record.date).toLocaleString()}</td>
       <td>
-        <button onclick ="loadRecord(${index})">Edit</button>
-        <button onclick ="deleteRecord(${index})">Delete</button>
+        <button class="btn btn-secondary" onclick ="loadRecord(${index})">Edit</button>
+        <button class="btn btn-secondary" onclick ="deleteRecord(${index})">Delete</button>
       </td>
       </tr>
     `;

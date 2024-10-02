@@ -1,7 +1,7 @@
 const userEmail = document.getElementById("floatingInput")
 const userPassword = document.getElementById("floatingPassword")
 const addData = document.getElementById("add-data")
-const record = document.getElementsByTagName("tbody")
+const record = document.getElementById("records-row")
 
 var myLocalStorage = JSON.parse(localStorage.getItem("form-data")) || []
 
@@ -17,22 +17,30 @@ addData.addEventListener("click", function () {
         "time": Date.now()
     })
     saveData()
+    updateData()
     userEmail.value = ""
     userPassword.value = ""
 })
 
 for (let i = 0; i < myLocalStorage.length; i++) {
     console.log(myLocalStorage[i]);
-    record.innerHTML += `
-    <tr>
-        <td>${myLocalStorage[i]["id"]}</td>
-        <td>${myLocalStorage[i]["email"]}</td>
-        <td>${myLocalStorage[i]["password"]}</td>
-        <td>${myLocalStorage[i]["time"]}</td>
-    </tr>
-    `
+}
+
+function updateData() {
+    for (let i = 0; i < myLocalStorage.length; i++) {
+        record.innerHTML += `
+        <tr>
+            <td>${myLocalStorage[i]["id"]}</td>
+            <td>${myLocalStorage[i]["email"]}</td>
+            <td>${myLocalStorage[i]["password"]}</td>
+            <td>${myLocalStorage[i]["time"]}</td>
+        </tr>
+        `
+    }
 }
 
 function generateUniqueID() {
     return Math.floor(Math.random() * Date.now());
 }
+
+updateData()

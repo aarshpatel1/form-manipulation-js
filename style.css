@@ -104,3 +104,8 @@ body {
 input:focus {
     box-shadow: none !important;
 }
+
+th,
+td {
+    text-align: center !important;
+}

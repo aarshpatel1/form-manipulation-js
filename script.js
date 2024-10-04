@@ -48,6 +48,15 @@ function loadData(index) {
     userPassword.value = currentRecord.password;
 }
 
+function modifyData(index) {
+    const currentRecord = myLocalStorage[index]
+    currentRecord.email = userEmail.value
+    currentRecord.password = userPassword.value
+    currentRecord.time = formatDateTime()
+    saveData()
+    updateData()
+}
+
 function deleteData(index) {
     // Remove the selected record by its index
     myLocalStorage.splice(index, 1);

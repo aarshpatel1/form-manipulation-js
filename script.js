@@ -34,9 +34,26 @@ function updateData() {
             <td>${myLocalStorage[i]["email"]}</td>
             <td>${myLocalStorage[i]["password"]}</td>
             <td>${myLocalStorage[i]["time"]}</td>
+            <td>
+                <button class="btn btn-sm btn-secondary" onclick="loadData(${i})">Edit</button>
+                <button class="btn btn-sm btn-danger ms-1" onclick="deleteData(${i})">Delete</button>
+            </td>
         </tr>
         `
     }
+}
+
+function loadData(i) {
+    const currentRecord = myLocalStorage[i]
+    // console.log(currentRecord["email"])
+    userEmail.value = currentRecord["email"]
+    userPassword.value = currentRecord["password"]
+}
+
+function deleteData(i) {
+    myLocalStorage.splice(i, 1)
+    saveData()
+    updateData()
 }
 
 function generateUniqueID() {

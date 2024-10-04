@@ -2,6 +2,7 @@ const userEmail = document.getElementById("floatingInput");
 const userPassword = document.getElementById("floatingPassword");
 const addData = document.getElementById("add-data");
 const record = document.getElementById("records-row");
+const showAlerts = document.querySelector("#alert")
 
 var myLocalStorage = JSON.parse(localStorage.getItem("form-data")) || [];
 var isEditing = false;  // Track if we are in edit mode
@@ -11,8 +12,28 @@ function saveData() {
     localStorage.setItem("form-data", JSON.stringify(myLocalStorage));
 }
 
+function ValidateEmail(input) {
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (input.value.match(validRegex)) {
+        // alert("Valid email address!");
+        // document.form1.text1.focus();
+        return true;
+    } else {
+        // alert("Invalid email address!");
+        showAlerts.innerHTML = `
+        <div class="alert alert-dark alert-dismissible" role="alert">
+            <div>Please enter valid email address...!</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `
+        // document.form1.text1.focus();
+        return false;
+    }
+}
+
 addData.addEventListener("click", function () {
-    if (userEmail.value === "" || userPassword.value === "") {
+
+    if (!ValidateEmail(userEmail)) {
         return
     }
 

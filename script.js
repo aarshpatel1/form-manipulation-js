@@ -27,6 +27,7 @@ for (let i = 0; i < myLocalStorage.length; i++) {
 }
 
 function updateData() {
+    /*
     for (let i = 0; i < myLocalStorage.length; i++) {
         record.innerHTML += `
         <tr>
@@ -41,16 +42,34 @@ function updateData() {
         </tr>
         `
     }
+    */
+
+    myLocalStorage.forEach(data => {
+        record.innerHTML += `
+        <tr>
+            <td>${data.id}</td>
+            <td>${data.email}</td>
+            <td>${data.password}</td>
+            <td>${data.time}</td>
+            <td>
+                <button class="btn btn-sm btn-secondary" onclick="loadData(${data.id})">Edit</button>
+                <button class="btn btn-sm btn-danger ms-1" onclick="deleteData(${data.id})">Delete</button>
+            </td>
+        </tr>
+        `
+    });
+
 }
 
-function loadData(i) {
+function loadData(id) {
     const currentRecord = myLocalStorage[i]
     // console.log(currentRecord["email"])
     userEmail.value = currentRecord["email"]
     userPassword.value = currentRecord["password"]
 }
 
-function deleteData(i) {
+function deleteData(id) {   
+    console.log(id)
     myLocalStorage.splice(i, 1)
     saveData()
     updateData()

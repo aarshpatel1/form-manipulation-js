@@ -12,6 +12,10 @@ function saveData() {
 }
 
 addData.addEventListener("click", function () {
+    if (userEmail.value === "" || userPassword.value === "") {
+        return
+    }
+
     if (isEditing) {
         // Modify the existing record if in edit mode
         modifyData(editIndex);
@@ -53,8 +57,8 @@ function loadData(index) {
     const currentRecord = myLocalStorage[index];
     userEmail.value = currentRecord.email;
     userPassword.value = currentRecord.password;
-    isEditing = true;       // Set to edit mode
-    editIndex = index;       // Store the index of the current record
+    isEditing = true;   // Set to edit mode
+    editIndex = index;  // Store the index of the current record
     addData.innerText = "Modify";  // Change the button text to indicate edit mode
 }
 
@@ -64,7 +68,7 @@ function modifyData(index) {
     currentRecord.password = userPassword.value;
     currentRecord.time = formatDateTime();
     isEditing = false;  // Exit edit mode
-    editIndex = -1;     // Reset the edit index
+    editIndex = -1;  // Reset the edit index
     addData.innerText = "Add Data";  // Reset button text
 }
 

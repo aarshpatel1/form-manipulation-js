@@ -17,11 +17,11 @@ You can check out the live demo of the project here:
 
 ### 3. Add Record
 [![Watch the demo](screenshots/video-thumbnail-1.png)](videos/demo-video-1.mp4)
-[Click here to watch the video](videos/demo-video-1.mp4)
+*Click the image or [this link](videos/demo-video-1.mp4) to watch the video.*
 
 ### 4. Edit and Delete Record
 [![Watch the demo](screenshots/video-thumbnail-2.png)](videos/demo-video-2.mp4)
-[Click here to watch the video](videos/demo-video-2.mp4)
+*Click the image or [this link](videos/demo-video-2.mp4) to watch the video.*
 
 ## Features
 

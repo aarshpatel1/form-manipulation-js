@@ -7,6 +7,20 @@ A simple project demonstrating how to manipulate HTML forms using JavaScript. Th
 You can check out the live demo of the project here:  
 [Form Manipulation JS Demo](https://aarshpatel1.github.io/form-manipulation-js/)
 
+### 1. Initial Form Display
+![Initial Form](screenshots/initial-form.png)
+*Initial view of the form before any interaction.*
+
+### 2. Email Validation
+![Real-time Validation](screenshots/validation.png)
+*Email validation providing feedback for incorrect input.*
+
+### 3. Add Record
+[![Watch the demo](screenshots/video-thumbnail-1.png)](videos/demo-video-1.mp4)
+
+### 4. Edit and Delete Record
+[![Watch the demo](screenshots/video-thumbnail-2.png)](videos/demo-video-2.mp4)
+
 ## Features
 
 - **Dynamic Form Validation:** Form input fields are validated in real-time, providing immediate feedback to the user.

@@ -16,17 +16,16 @@
 
 <body class="bg-body-tertiary" data-bs-theme="dark">
 
-
     <!-- main form start-->
     <main class="form-signin w-100 m-auto vh-100 d-flex justify-content-center align-items-center">
         <form id="sign-in">
             <h1 class="mb-3">Please sign in</h1>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput">
+                <input type="email" class="form-control" placeholder="name@example.com" id="floatingInput">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword">
+                <input type="password" class="form-control" placeholder="password" id="floatingPassword">
                 <label for="floatingPassword">Password</label>
             </div>
             <button class="btn btn-secondary w-100 py-2 mt-2 fw-bold" type="submit" id="add-data">Sign in</button>
@@ -36,7 +35,7 @@
 
     <section class="position-absolute bottom-0 end-0 m-2">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#allRecords">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#allRecords">
             View Records
         </button>
     </section>
@@ -82,7 +81,7 @@
 
 
     <!-- alert start -->
-    <div class="position-absolute bottom-0 end-0 mx-3" id="alert"></div>
+    <div class="position-absolute bottom-0 end-0 mx-3 my-5" id="alert"></div>
     <!-- alert end -->
 
 

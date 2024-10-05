@@ -105,6 +105,10 @@ input:focus {
     box-shadow: none !important;
 }
 
+input::placeholder {
+    user-select: none;
+}
+
 th,
 td {
     text-align: center !important;

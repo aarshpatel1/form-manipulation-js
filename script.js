@@ -4,14 +4,19 @@ const addData = document.getElementById("add-data");
 const record = document.getElementById("records-row");
 const showAlerts = document.querySelector("#alert")
 
+// get data from local storage
 var myLocalStorage = JSON.parse(localStorage.getItem("form-data")) || [];
+
+
 var isEditing = false;  // Track if we are in edit mode
 var editIndex = -1;     // Store the index of the current record being edited
 
+// save data to local storage
 function saveData() {
     localStorage.setItem("form-data", JSON.stringify(myLocalStorage));
 }
 
+// email validation function
 function ValidateEmail(input) {
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (input.value.match(validRegex)) {
@@ -31,17 +36,17 @@ function ValidateEmail(input) {
     }
 }
 
+// add record by clicknig signin button
 addData.addEventListener("click", function () {
 
     if (!ValidateEmail(userEmail)) {
         return
     }
 
+    // check mode whether it is editing or fresh signin
     if (isEditing) {
-        // Modify the existing record if in edit mode
         modifyData(editIndex);
     } else {
-        // Add new data if not in edit mode
         myLocalStorage.push({
             "id": generateUniqueID(),
             "email": userEmail.value,
@@ -54,6 +59,7 @@ addData.addEventListener("click", function () {
     clearForm();
 });
 
+// update the datatable to show the data
 function updateData() {
     // Clear previous records to avoid duplication
     record.innerHTML = "";
@@ -74,6 +80,7 @@ function updateData() {
     });
 }
 
+// load clicked data to the form
 function loadData(index) {
     const currentRecord = myLocalStorage[index];
     userEmail.value = currentRecord.email;
@@ -83,6 +90,7 @@ function loadData(index) {
     addData.innerText = "Modify";  // Change the button text to indicate edit mode
 }
 
+// edit the data which is chosen for modification
 function modifyData(index) {
     const currentRecord = myLocalStorage[index];
     currentRecord.email = userEmail.value;
@@ -93,6 +101,7 @@ function modifyData(index) {
     addData.innerText = "Add Data";  // Reset button text
 }
 
+// delete data from local storage
 function deleteData(index) {
     // Remove the selected record by its index
     myLocalStorage.splice(index, 1);
@@ -100,10 +109,12 @@ function deleteData(index) {
     updateData();
 }
 
+// generate unique id for all the data
 function generateUniqueID() {
     return Math.floor(Math.random() * Date.now());
 }
 
+// data and time in special format
 function formatDateTime() {
     const now = new Date(Date.now());
 
@@ -118,6 +129,7 @@ function formatDateTime() {
     return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 }
 
+// clear the form and reset the edit mode
 function clearForm() {
     userEmail.value = "";
     userPassword.value = "";
@@ -125,4 +137,5 @@ function clearForm() {
     addData.innerText = "Add Data";  // Reset button text
 }
 
+// default call this functions displays existing local storage data
 updateData();

@@ -18,10 +18,8 @@
 
     <!-- main form start-->
     <main class="form-signin w-100 m-auto vh-100 d-flex justify-content-center align-items-center">
-
         <form>
             <h1 class="mb-3">Please sign in</h1>
-
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput">
                 <label for="floatingInput">Email address</label>
@@ -30,10 +28,8 @@
                 <input type="password" class="form-control" id="floatingPassword">
                 <label for="floatingPassword">Password</label>
             </div>
-
             <button class="btn btn-secondary w-100 py-2 mt-2 fw-bold" type="submit" id="add-data">Sign in</button>
         </form>
-
     </main>
     <!-- main form end -->
 
@@ -51,7 +47,7 @@
                     </tr>
                 </thead>
                 <tbody id="records-row">
-
+                    <!-- table rows -->
                 </tbody>
             </table>
         </div>
@@ -78,19 +74,15 @@
     <!-- Javascript -->
     <script src="script.js"></script>
     <script>
-
-        // DataTable.datetime('d MMM yyyy');
         let table = new DataTable('#records', {
             // options
-
             layout: {
                 topEnd: {
                     search: {
                         placeholder: 'Type search here'
                     }
                 }
-            },
-
+            }
         });
     </script>
 </body>

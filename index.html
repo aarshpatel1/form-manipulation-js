@@ -16,9 +16,10 @@
 
 <body class="bg-body-tertiary" data-bs-theme="dark">
 
+
     <!-- main form start-->
     <main class="form-signin w-100 m-auto vh-100 d-flex justify-content-center align-items-center">
-        <form>
+        <form id="sign-in">
             <h1 class="mb-3">Please sign in</h1>
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput">
@@ -33,26 +34,51 @@
     </main>
     <!-- main form end -->
 
-    <!-- datatable start -->
-    <section id="data-table" class="vh-100">
-        <div class="container-fluid">
-            <table id="records" class="w-100 table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Date Time</th>
-                        <th>Edit Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="records-row">
-                    <!-- table rows -->
-                </tbody>
-            </table>
+    <section class="position-absolute bottom-0 end-0 m-2">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#allRecords">
+            View Records
+        </button>
+    </section>
+
+
+    <!-- Modal -->
+    <section class="modal fade" id="allRecords" tabindex="-1" aria-labelledby="allRecordsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="allRecordsLabel">Records</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-body-tertiary">
+                    <!-- datatable start -->
+                    <section id="data-table">
+                        <div class="container-fluid">
+                            <table id="records" class="w-100 table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Date Time</th>
+                                        <th>Edit Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="records-row">
+                                    <!-- table rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <!-- datatable end -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- datatable end -->
 
 
     <!-- alert start -->

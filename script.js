@@ -25,12 +25,6 @@ function ValidateEmail(input) {
         return true;
     } else {
         // alert("Invalid email address!");
-        showAlerts.innerHTML = `
-        <div class="alert alert-dark alert-dismissible" role="alert">
-            <div>Please enter valid email address...!</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        `
         // document.form1.text1.focus();
         return false;
     }
@@ -40,6 +34,12 @@ function ValidateEmail(input) {
 addData.addEventListener("click", function () {
 
     if (!ValidateEmail(userEmail)) {
+        showAlerts.innerHTML = `
+        <div class="alert alert-dark alert-dismissible" role="alert">
+            <div>Please enter valid email address...!</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `
         return
     }
 
